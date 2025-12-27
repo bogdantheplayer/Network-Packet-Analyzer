@@ -149,8 +149,9 @@ Install **Visual Studio** (or Visual Studio Build Tools) with:
 git clone https://github.com/YOUR-USERNAME/Network-Packet-Analyzer.git
 cd Network-Packet-Analyzer/PacketAnalyzer
 ```
+---
 
-2) Configure Qt paths locally (do NOT commit these)
+### 2) Configure Qt paths locally (do NOT commit these)
 
 Set Qt paths locally in your environment or CMake configure args.
 
@@ -158,27 +159,37 @@ Example (PowerShell):
 
 cmake -S . -B build -DCMAKE_PREFIX_PATH="E:/Qt/6.10.1/msvc2022_64"
 
-3) Build
+---
+
+### 3) Build
 cmake --build build --config Debug
 
-4) Run
+---
 
-Run the generated exe as Administrator:
+### 4) Run (VS Code – Recommended)
 
-VS Code: "Run as Administrator" (recommended)
+- Start **VS Code as Administrator**
+- Open the project folder
+- Press **Ctrl + Shift + P**
+- Select **CMake: Delete Cache and Reconfigure**
+- Press **Ctrl + Shift + P**
+- Select **CMake: Build**
+- Press **Ctrl + Shift + P**
+- Select **CMake: Run**
 
-Or run the exe from build folder
+The application will start with Administrator privileges.
 
-▶ Running Notes
+---
 
-Running as Administrator is recommended, otherwise capture may fail or show no traffic.
+## ▶ Running Notes
 
-Loopback capture works if Npcap supports it and you select the loopback adapter.
+- Running as Administrator is required, otherwise packet capture may fail or show no traffic.
+- Loopback capture works if Npcap supports it and the loopback adapter is selected.
 
-⚠ Important Notes
+---
 
-.vscode/ and build/ are ignored on purpose (local paths differ per machine).
+## ⚠ Important Notes
 
-Npcap must be installed on Windows for packet capture.
-
-CSV export contains only what is displayed in the table (not raw packets).
+- `.vscode/` and `build/` folders are ignored on purpose (local paths differ per machine).
+- Npcap must be installed on Windows for packet capture.
+- CSV export contains only what is displayed in the table (not raw packets).
