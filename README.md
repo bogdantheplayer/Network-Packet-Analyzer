@@ -197,7 +197,6 @@ In VS Code:
 - Run:
 
   - CMake: Delete Cache and Reconfigure
-
   - CMake: Build
 
 ---
