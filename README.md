@@ -240,3 +240,10 @@ The application will start with administrator privileges and packet capture will
 - Npcap must be installed on Windows before running the application
 
 - Qt paths are local per user and must not be committed
+
+---
+
+## 📸 Application Interface
+<img width="1200" alt="Network Packet Analyzer - Live Capture Interface"
+     src="https://github.com/user-attachments/assets/3420beec-cf1e-46eb-b2b7-3a3532053aff" />
+Live packet capture on a local network interface (test traffic only).
