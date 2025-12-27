@@ -83,37 +83,102 @@ PacketAnalyzer/
 └── README.md
 ```
 
-##🛠 Installation (Windows)
-1) Install Npcap
+## 🛠 Installation (Windows)
 
-Download and install Npcap installer for Windows:
+### 1) Install Npcap
 
-Install in WinPcap-compatible mode (recommended)
+Download and install **Npcap** for Windows.
 
-Admin rights may be required
+During installation:
+- Enable **WinPcap-compatible mode** (recommended)
+- Administrator rights may be required
 
-2) Download Npcap SDK
+Npcap is required for live packet capture.
 
-Download Npcap SDK (ZIP) and extract it somewhere (example):
+---
 
+### 2) Download Npcap SDK
+
+Download **Npcap SDK (ZIP)** and extract it to a local folder, for example:
+
+```bash
 E:/NpcapSDK
+```
 
+After extraction, you should have:
 
-You should have:
-
+```bash
 E:/NpcapSDK/Include/pcap.h
 
 E:/NpcapSDK/Lib/x64/wpcap.lib
 
 E:/NpcapSDK/Lib/x64/Packet.lib
+```
 
-3) Install Qt 6 (MSVC)
-Install Qt 6.x for msvc2022_64 using Qt Online Installer.
 
-4) Install Visual Studio build tools
+This SDK is required for compiling the application.
 
-Install Visual Studio (or Build Tools) with:
-Desktop development with C++
-MSVC toolset
-Windows SDK
-CMake tools
+---
+
+### 3) Install Qt 6 (MSVC)
+
+Install **Qt 6.x** using the **Qt Online Installer**.
+
+Make sure to install:
+- Qt version built for **msvc2022_64**
+- Qt Widgets
+- Qt Network
+
+---
+
+### 4) Install Visual Studio build tools
+
+Install **Visual Studio** (or Visual Studio Build Tools) with:
+- Desktop development with C++
+- MSVC toolset
+- Windows SDK
+- CMake tools
+
+---
+
+## ⚙ Build Instructions (VS Code / CMake)
+
+### 1) Clone repository
+
+```bash
+git clone https://github.com/YOUR-USERNAME/Network-Packet-Analyzer.git
+cd Network-Packet-Analyzer/PacketAnalyzer
+```
+
+2) Configure Qt paths locally (do NOT commit these)
+
+Set Qt paths locally in your environment or CMake configure args.
+
+Example (PowerShell):
+
+cmake -S . -B build -DCMAKE_PREFIX_PATH="E:/Qt/6.10.1/msvc2022_64"
+
+3) Build
+cmake --build build --config Debug
+
+4) Run
+
+Run the generated exe as Administrator:
+
+VS Code: "Run as Administrator" (recommended)
+
+Or run the exe from build folder
+
+▶ Running Notes
+
+Running as Administrator is recommended, otherwise capture may fail or show no traffic.
+
+Loopback capture works if Npcap supports it and you select the loopback adapter.
+
+⚠ Important Notes
+
+.vscode/ and build/ are ignored on purpose (local paths differ per machine).
+
+Npcap must be installed on Windows for packet capture.
+
+CSV export contains only what is displayed in the table (not raw packets).
