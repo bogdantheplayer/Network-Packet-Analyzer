@@ -145,6 +145,7 @@ Install **Visual Studio** (or Visual Studio Build Tools) with:
 
 ### 1) Clone repository
 
+Clone the repository and open the **PacketAnalyzer** folder in VS Code.
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/Network-Packet-Analyzer.git
@@ -153,43 +154,90 @@ git clone https://github.com/YOUR-USERNAME/Network-Packet-Analyzer.git
 
 ### 2) Configure Qt paths locally (do NOT commit these)
 
-Set Qt paths locally in your environment or CMake configure args.
+This project uses Qt 6 + CMake.
+Qt installation paths differ per machine, therefore they must NOT be committed to GitHub.
 
-Example (PowerShell):
+Steps in VS Code:
 
-cmake -S . -B build -DCMAKE_PREFIX_PATH="E:/Qt/6.10.1/msvc2022_64"
+1. Open the project folder in VS Code
+2. Create (or edit) the file:
+
+```bash
+.vscode/settings.json
+```
+
+3. Add the following content (example):
+
+```bash
+{
+  "cmake.configureSettings": {
+    "CMAKE_PREFIX_PATH": "E:/qt_ceva/altceva/6.10.1/msvc2022_64",
+    "Qt6_DIR": "E:/qt_ceva/altceva/6.10.1/msvc2022_64/lib/cmake/Qt6"
+  },
+  "cmake.environment": {
+    "PATH": "E:/qt_ceva/altceva/6.10.1/msvc2022_64/bin;${env:PATH}"
+  }
+}
+```
+
+🔹 IMPORTANT:
+
+- Replace the paths above with the location where Qt is installed on your system
+
+- The .vscode/ folder is intentionally ignored and must NOT be pushed to GitHub
 
 ---
 
 ### 3) Build
-cmake --build build --config Debug
+
+In VS Code:
+
+- Open Command Palette: **Ctrl + Shift + P**
+
+- Run:
+
+-- CMake: Delete Cache and Reconfigure
+
+-- CMake: Build
 
 ---
 
 ### 4) Run (VS Code – Recommended)
 
-- Start **VS Code as Administrator**
-- Open the project folder
-- Press **Ctrl + Shift + P**
-- Select **CMake: Delete Cache and Reconfigure**
-- Press **Ctrl + Shift + P**
-- Select **CMake: Build**
-- Press **Ctrl + Shift + P**
-- Select **CMake: Run**
+⚠ Packet capture requires administrator privileges.
 
-The application will start with Administrator privileges.
+Recommended method:
+
+1. Close VS Code
+
+2. Reopen VS Code as Administrator
+
+3. Open the project
+
+4. Press **Ctrl + Shift + P**
+
+5. Run:
+
+- CMake: Run
+
+The application will start with administrator privileges and packet capture will work correctly.
 
 ---
 
 ## ▶ Running Notes
 
-- Running as Administrator is required, otherwise packet capture may fail or show no traffic.
-- Loopback capture works if Npcap supports it and the loopback adapter is selected.
+- Running as Administrator is required, otherwise packet capture may fail or show no traffic
+
+- Loopback capture works if Npcap supports it and the loopback adapter is selected
+
+- CSV export contains only the packets displayed in the table, not raw PCAP data
 
 ---
 
 ## ⚠ Important Notes
 
-- `.vscode/` and `build/` folders are ignored on purpose (local paths differ per machine).
-- Npcap must be installed on Windows for packet capture.
-- CSV export contains only what is displayed in the table (not raw packets).
+- .vscode/ and build/ are intentionally ignored (local configuration differs per machine)
+
+- Npcap must be installed on Windows before running the application
+
+- Qt paths are local per user and must not be committed
