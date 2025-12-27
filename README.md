@@ -145,9 +145,9 @@ Install **Visual Studio** (or Visual Studio Build Tools) with:
 
 ### 1) Clone repository
 
+
 ```bash
 git clone https://github.com/YOUR-USERNAME/Network-Packet-Analyzer.git
-cd Network-Packet-Analyzer/PacketAnalyzer
 ```
 ---
 
