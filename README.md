@@ -196,9 +196,9 @@ In VS Code:
 
 - Run:
 
--- CMake: Delete Cache and Reconfigure
+  - CMake: Delete Cache and Reconfigure
 
--- CMake: Build
+  - CMake: Build
 
 ---
 
@@ -218,7 +218,7 @@ Recommended method:
 
 5. Run:
 
-- CMake: Run
+  - CMake: Run
 
 The application will start with administrator privileges and packet capture will work correctly.
 
