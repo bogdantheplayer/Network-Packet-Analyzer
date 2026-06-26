@@ -5,14 +5,14 @@ It captures packets in real time, displays them in a table, supports **BPF filte
 
 ---
 
-## 🚀 Features
+## Features
 
-### 📡 Real-time Packet Capture
+### Real-time Packet Capture
 - Captures live traffic via **Npcap** (Windows).
 - Interface selection (Ethernet/Wi-Fi/Loopback, etc.).
 - Start/Stop capture from GUI.
 
-### 🧪 BPF Filtering (Real pcap filter)
+### BPF Filtering (Real pcap filter)
 Apply filters using `pcap_compile()` + `pcap_setfilter()`:
 - Protocol checkboxes: **TCP**, **UDP**, **ICMP**
 - Optional filters:
@@ -23,7 +23,7 @@ Apply filters using `pcap_compile()` + `pcap_setfilter()`:
     - `udp and port 53`
     - `(tcp or udp) and host 8.8.8.8`
 
-### 🧾 Professional Packet Columns
+### Professional Packet Columns
 Table includes:
 - Time
 - Source IP / Destination IP
@@ -32,23 +32,23 @@ Table includes:
 - Length
 - Information (e.g. TCP flags, ARP who-has, ICMP type/code)
 
-### 📊 Live Statistics
+### Live Statistics
 - PPS (packets per second) label
 - PPS chart (last 60 seconds)
 - Top SRC IPs
 - Top DST IPs
 - Top destination ports
 
-### 🌐 DNS Resolve (Optional)
+### DNS Resolve (Optional)
 - Checkbox: Resolve DNS
 - Uses Qt Network (`QHostInfo`) to resolve hostnames for IPs
 
-### 📁 Export
+### Export
 - Export packets from the table to **CSV** (one click)
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 | Component | Technology |
 |----------|------------|
@@ -61,7 +61,7 @@ Table includes:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```bash
 PacketAnalyzer/
@@ -83,7 +83,7 @@ PacketAnalyzer/
 └── README.md
 ```
 
-## 🛠 Installation (Windows)
+## Installation (Windows)
 
 ### 1) Install Npcap
 
@@ -141,7 +141,7 @@ Install **Visual Studio** (or Visual Studio Build Tools) with:
 
 ---
 
-## ⚙ Build Instructions (VS Code / CMake)
+## Build Instructions (VS Code / CMake)
 
 ### 1) Clone repository
 
@@ -203,7 +203,7 @@ In VS Code:
 
 ### 4) Run (VS Code – Recommended)
 
-⚠ Packet capture requires administrator privileges.
+ Packet capture requires administrator privileges.
 
 Recommended method:
 
@@ -223,7 +223,7 @@ The application will start with administrator privileges and packet capture will
 
 ---
 
-## ▶ Running Notes
+## Running Notes
 
 - Running as Administrator is required, otherwise packet capture may fail or show no traffic
 
@@ -233,7 +233,7 @@ The application will start with administrator privileges and packet capture will
 
 ---
 
-## ⚠ Important Notes
+## Important Notes
 
 - .vscode/ and build/ are intentionally ignored (local configuration differs per machine)
 
@@ -243,7 +243,7 @@ The application will start with administrator privileges and packet capture will
 
 ---
 
-## 📸 Application Interface
+## Application Interface
 <img width="1200" alt="Network Packet Analyzer - Live Capture Interface"
      src="https://github.com/user-attachments/assets/3420beec-cf1e-46eb-b2b7-3a3532053aff" />
 Live packet capture on a local network interface (test traffic only).
