@@ -180,7 +180,7 @@ Steps in VS Code:
 }
 ```
 
-🔹 IMPORTANT:
+ IMPORTANT:
 
 - Replace the paths above with the location where Qt is installed on your system
 
